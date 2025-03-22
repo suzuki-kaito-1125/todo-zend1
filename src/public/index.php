@@ -1,5 +1,5 @@
 <?php
-// Composer のオートローダーを読み込む（もし使う場合）
+// Composer のオートローダーを読み込む
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
