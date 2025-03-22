@@ -1,0 +1,25 @@
+# Composerの依存ファイル
+/vendor/
+
+# IDEやエディタの設定ファイル
+/.idea/
+/.vscode/
+/*.sublime-workspace
+/*.sublime-project
+
+# キャッシュやログなどの一時ファイル
+/data/cache/
+/data/logs/
+
+# OSやエディタが作成するシステムファイル
+.DS_Store
+Thumbs.db
+
+# Docker関連のファイル
+.docker/
+
+# PHPUnitのテスト結果
+/phpunit-result.xml
+
+# Zend Frameworkのローカル設定
+/application/configs/application.ini~  # 一時的な設定ファイル（例: `application.ini` のバックアップ）
