@@ -16,6 +16,8 @@ services:
       context: ./docker/php
     volumes:
       - .:/var/www/html
+    depends_on:
+      - db
     networks:
       - app-network
 
@@ -31,6 +33,7 @@ services:
       MYSQL_PASSWORD: todo_password
     volumes:
       - db-data:/var/lib/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/my.cnf
     networks:
       - app-network
 
