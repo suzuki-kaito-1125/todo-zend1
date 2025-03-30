@@ -1,0 +1,29 @@
+<h1>Todo List</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Completed</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($this->todos as $todo): ?>
+      <tr>
+        <td><?php echo $todo['title']; ?></td>
+        <td><?php echo $todo['completed'] ? 'Yes' : 'No'; ?></td>
+        <td>
+          <?php if (!$todo['completed']): ?>
+            <a href="/todo/complete/id/<?php echo $todo['id']; ?>">Complete</a>
+          <?php else: ?>
+            <a href="/todo/incomplete/id/<?php echo $todo['id']; ?>">Mark Incomplete</a>
+          <?php endif; ?>
+          <a href="/todo/delete/id/<?php echo $todo['id']; ?>">Delete</a>
+        </td>
+      </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
+
+<a href="/todo/add">Add New Todo</a>
