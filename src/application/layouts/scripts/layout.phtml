@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <?php echo $this->doctype(); ?>
+  <meta charset="utf-8">
+  <?php echo $this->headTitle() ?>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <header>
+    <!-- ヘッダー共通部分 -->
+  </header>
+
+  <div id="content" class="p-4">
+    <?php echo $this->layout()->content; ?>
+  </div>
+
+  <footer>
+    <!-- フッター共通部分 -->
+  </footer>
+</body>
+
+</html>

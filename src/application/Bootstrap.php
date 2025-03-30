@@ -32,6 +32,18 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view->doctype('HTML5');
         $viewRenderer = Zend_Controller_Action_HelperBroker::getStaticHelper('ViewRenderer');
         $viewRenderer->setView($view);
+        $layout = Zend_Layout::startMvc(array(
+            'layoutPath' => APPLICATION_PATH . '/layouts/scripts/',
+            'layout' => 'layout'
+        ));
         return $view;
+    }
+
+    protected function _initViewHelpers()
+    {
+        $view = $this->getResource('view');
+
+        // デフォルトのタイトル設定
+        $view->headTitle('TODO');
     }
 }

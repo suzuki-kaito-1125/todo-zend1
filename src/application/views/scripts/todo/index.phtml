@@ -1,29 +1,45 @@
-<h1>Todo List</h1>
+<h1 class="text-lg">Todo List</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Completed</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php foreach ($this->todos as $todo): ?>
-      <tr>
-        <td><?php echo $todo['title']; ?></td>
-        <td><?php echo $todo['completed'] ? 'Yes' : 'No'; ?></td>
-        <td>
-          <?php if (!$todo['completed']): ?>
-            <a href="/todo/complete/id/<?php echo $todo['id']; ?>">Complete</a>
-          <?php else: ?>
-            <a href="/todo/incomplete/id/<?php echo $todo['id']; ?>">Mark Incomplete</a>
-          <?php endif; ?>
-          <a href="/todo/delete/id/<?php echo $todo['id']; ?>">Delete</a>
-        </td>
-      </tr>
-    <?php endforeach; ?>
-  </tbody>
-</table>
+<div class="space-y-4">
+  <div class="relative overflow-x-auto">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            Title
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Completed
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($this->todos as $todo): ?>
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <?php echo $todo['title']; ?>
+            </th>
+            <td class="px-6 py-4">
+              <?php echo $todo['completed'] ? 'Yes' : 'No'; ?>
+              <?php if (!$todo['completed']): ?>
+                <a href="/todo/complete/id/<?php echo $todo['id']; ?>" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Complete</a>
+              <?php else: ?>
+                <a href="/todo/incomplete/id/<?php echo $todo['id']; ?>" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Incomplete</a>
+              <?php endif; ?>
+            </td>
+            <td class="px-6 py-4">
+              <a href=" /todo/delete/id/<?php echo $todo['id']; ?>" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Delete</a>
+            </td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
 
-<a href="/todo/add">Add New Todo</a>
+  <div>
+    <a href="/todo/add" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Add New Todo</a>
+  </div>
+</div>
